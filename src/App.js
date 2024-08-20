@@ -2,7 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import { toast } from 'react-toastify';
 
-const socket = io('https://10.80.162.142:3000');
+const socket = io('https://10.80.162.142:3000',
+    {secure: true,
+      transports: ['websocket'],
+    });
 
 function App() {
   const localStream = useRef(null);
